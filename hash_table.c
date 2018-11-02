@@ -13,7 +13,7 @@ static ht_item HT_DELETED_ITEM = {NULL, NULL};
 // ht_item *HT_DELETED_ITEM = ht_new_item('delete', 'delete');
 
 // initialize a new key-value pair
-static ht_item *ht_new_item(const char *k, const char *v)
+static ht_item *ht_new_item(char *k, char *v)
 {
   ht_item *i = malloc(sizeof(ht_item));
   i->key = k;
@@ -126,7 +126,7 @@ static void ht_resize_down(ht_hash_table *ht)
 }
 
 // insert function
-void ht_insert(ht_hash_table *ht, const char *key, const char *value)
+void ht_insert(ht_hash_table *ht, char *key, char *value)
 {
   const int load = ht->count * 100 / ht->size;
   if (load > 70)
